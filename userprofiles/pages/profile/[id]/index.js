@@ -11,7 +11,7 @@ const Profile = ({ profile }) => {
 
   return (
     <div className={ProfileStyle.card}>
-      <img src={picture.thumbnail} alt="" />
+      <img src={picture.large} alt="" />
       <p>name:-{name.first + name.last} </p>
       <p>location:-{location.country} </p>
       <p>{profile.body}</p>

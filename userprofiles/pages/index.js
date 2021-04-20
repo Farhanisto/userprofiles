@@ -7,6 +7,7 @@ export default function Home({ profiles }) {
       <Head>
         <title>User Profiles</title>
       </Head>
+
       <ProfileList profiles={profiles.results} />
     </div>
   );
