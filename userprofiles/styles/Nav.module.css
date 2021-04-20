@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  background: #000;
+  height: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.nav ul li a {
+  margin: 5px 15px;
+  color: #fff;
+}
