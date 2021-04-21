@@ -9,8 +9,8 @@ const ProfileList = () => {
   return (
     <div className={ProfileStyle.grid}>
       {filteredProfiles &&
-        filteredProfiles.map((profile, ind) => (
-          <ProfileItem key={profile.id} profile={profile} ind={ind} />
+        filteredProfiles.map((profile) => (
+          <ProfileItem key={profile.id} profile={profile} />
         ))}
     </div>
   );

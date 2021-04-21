@@ -2,12 +2,15 @@ import React, { useContext, useCallback, useEffect, useState } from 'react';
 
 const StoreContext = React.createContext({
   filteredProfiles: [],
-  getProfiles: () => {}
+  search: '',
+  getProfiles: () => {},
+  searchTerm: () => {}
 });
 
 const StoreProvider = ({ children }) => {
-  const [profiles, setProfiles] = useState(null);
-  const [filteredProfiles, setFilteredProfiles] = useState(null);
+  const [profiles, setProfiles] = useState('');
+  const [filteredProfiles, setFilteredProfiles] = useState('');
+  const [search, setSearch] = useState('');
 
   const getProfiles = useCallback(async () => {
     const res = await fetch('https://randomuser.me/api/?results=6');
@@ -17,10 +20,21 @@ const StoreProvider = ({ children }) => {
   }, []);
   console.log(profiles, '----profiles');
   const findProfiles = useCallback(() => {
-    const foundprofiles = [...profiles];
+    let foundprofiles = [...profiles];
+
+    if (search) {
+      // console.log(search, 'search valueeeeee');
+      foundprofiles = [];
+    }
 
     setFilteredProfiles(foundprofiles);
   }, [profiles]);
+
+  const searchTerm = useCallback((term) => {
+    console.log(term, 'ssssssssss');
+    setSearch(term);
+    findProfiles();
+  }, []);
 
   useEffect(() => {
     if (profiles) {
@@ -30,7 +44,12 @@ const StoreProvider = ({ children }) => {
 
   return (
     <StoreContext.Provider
-      value={{ filteredProfiles: filteredProfiles, getProfiles: getProfiles }}
+      value={{
+        filteredProfiles: filteredProfiles,
+        search: search,
+        getProfiles: getProfiles,
+        searchTerm: searchTerm
+      }}
     >
       {children}
     </StoreContext.Provider>

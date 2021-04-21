@@ -1,13 +1,24 @@
 import HeaderStyle from '../styles/Header.module.css';
-const Header = () => (
-  <div className="headerContainer">
-    <h1 className={HeaderStyle.title}>
-      <span>User</span>Profiles
-    </h1>
+import { useStore } from '../store/store';
 
-    <p className={HeaderStyle.description}>Search</p>
-    <input type="text" />
-  </div>
-);
+const Header = () => {
+  const { search, searchTerm } = useStore();
+
+  return (
+    <div className="headerContainer">
+      <h1 className={HeaderStyle.title}>
+        <span>User</span>Profiles
+      </h1>
+
+      <p className={HeaderStyle.description}>Search</p>
+      <input
+        type="text"
+        placeholder="search"
+        value={search}
+        onChange={(event) => searchTerm(event.target.value)}
+      />
+    </div>
+  );
+};
 
 export default Header;
