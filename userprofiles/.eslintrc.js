@@ -15,17 +15,6 @@ module.exports = {
     'get-off-my-lawn/prefer-arrow-functions': 0,
     'import/order': 0,
     'import/group-exports': 0,
-    'arrow-body-style': 0,
-    camelcase: [
-      'error',
-      {
-        allow: [
-          'consumer_key',
-          'consumer_secret',
-          'access_token',
-          'access_token_secret'
-        ]
-      }
-    ]
+    'arrow-body-style': 0
   }
 };
