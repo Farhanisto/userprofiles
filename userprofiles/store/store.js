@@ -9,12 +9,12 @@ const StoreProvider = ({ children }) => {
   const [profiles, setProfiles] = useState(null);
   const [filteredProfiles, setFilteredProfiles] = useState(null);
 
-  const getProfiles = async () => {
+  const getProfiles = useCallback(async () => {
     const res = await fetch('https://randomuser.me/api/?results=6');
     const profilesdata = await res.json();
 
     return setProfiles(profilesdata.results);
-  };
+  }, []);
   console.log(profiles, '----profiles');
   const findProfiles = useCallback(() => {
     const foundprofiles = [...profiles];

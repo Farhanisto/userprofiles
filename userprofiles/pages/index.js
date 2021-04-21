@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import ProfileList from '../components/ProfileList';
 import { useStore } from '../store/store';
 
-export default function Home({ profiles }) {
+export default function Home() {
   const { getProfiles } = useStore();
 
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
 
   return (
     <div>
@@ -16,19 +16,19 @@ export default function Home({ profiles }) {
         <title>User Profiles</title>
       </Head>
 
-      <ProfileList profiles={profiles.results} />
+      <ProfileList />
     </div>
   );
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch('https://randomuser.me/api/?results=6');
+// export const getStaticProps = async () => {
+//   const res = await fetch('https://randomuser.me/api/?results=6');
 
-  const profiles = await res.json();
+//   const profiles = await res.json();
 
-  return {
-    props: {
-      profiles
-    }
-  };
-};
+//   return {
+//     props: {
+//       profiles
+//     }
+//   };
+// };

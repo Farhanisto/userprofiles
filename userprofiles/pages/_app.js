@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
-import { StoreProvider, useStore } from '../store/store';
+import { StoreProvider } from '../store/store';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
