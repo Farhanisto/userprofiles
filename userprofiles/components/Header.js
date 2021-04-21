@@ -13,7 +13,7 @@ const Header = () => {
       <p className={HeaderStyle.description}>Search</p>
       <input
         type="text"
-        placeholder="search"
+        placeholder="search by first naem"
         value={search}
         onChange={(event) => searchTerm(event.target.value)}
       />

@@ -4,7 +4,6 @@ import { useStore } from '../store/store';
 
 const ProfileList = () => {
   const { filteredProfiles } = useStore();
-  console.log(filteredProfiles, '----prof2');
 
   return (
     <div className={ProfileStyle.grid}>

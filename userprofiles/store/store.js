@@ -18,12 +18,11 @@ const StoreProvider = ({ children }) => {
 
     return setProfiles(profilesdata.results);
   }, []);
-  console.log(profiles, '----profiles');
+
   const findProfiles = useCallback(() => {
     let foundprofiles = [...profiles];
 
     if (search) {
-      console.log(search, 'search valueeeeee');
       foundprofiles = foundprofiles.filter(
         (profile) => profile.name.first == search
       );
@@ -33,9 +32,7 @@ const StoreProvider = ({ children }) => {
   }, [profiles, search]);
 
   const searchTerm = useCallback((term) => {
-    console.log(term, 'ssssssssss');
     setSearch(term);
-    // findProfiles();
   }, []);
 
   useEffect(() => {

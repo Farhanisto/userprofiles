@@ -20,15 +20,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   const res = await fetch('https://randomuser.me/api/?results=6');
-
-//   const profiles = await res.json();
-
-//   return {
-//     props: {
-//       profiles
-//     }
-//   };
-// };

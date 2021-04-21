@@ -1,19 +1,15 @@
 import Link from 'next/link';
 import ProfileStyle from '../styles/Profile.module.css';
-import { useStore } from '../store/store';
 
 const ProfileItem = ({ profile }) => {
-  const { gender, picture, name, location, login } = profile;
-  const value = useStore();
-  console.log(value.filteredProfiles, '----prof3');
+  const { picture, name, location, login } = profile;
 
   return (
     <Link href="/profile/[id]" as={`/profile/${login.uuid}`}>
       <div className={ProfileStyle.card}>
         <img src={picture.medium} alt="" />
-        <p>name:-{name.first + name.last} </p>
+        <p>name:-{`${name.first}  ${name.last}`} </p>
         <p>location:-{location.country} </p>
-        <h1 style={{ color: value }}>tfar</h1>
 
         <h1>&rarr;</h1>
       </div>
