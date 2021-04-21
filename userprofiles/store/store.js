@@ -9,7 +9,7 @@ const StoreContext = React.createContext({
 
 const StoreProvider = ({ children }) => {
   const [profiles, setProfiles] = useState('');
-  const [filteredProfiles, setFilteredProfiles] = useState('');
+  const [filteredProfiles, setFilteredProfiles] = useState([]);
   const [search, setSearch] = useState('');
 
   const getProfiles = useCallback(async () => {
@@ -23,17 +23,19 @@ const StoreProvider = ({ children }) => {
     let foundprofiles = [...profiles];
 
     if (search) {
-      // console.log(search, 'search valueeeeee');
-      foundprofiles = [];
+      console.log(search, 'search valueeeeee');
+      foundprofiles = foundprofiles.filter(
+        (profile) => profile.name.first == search
+      );
     }
 
     setFilteredProfiles(foundprofiles);
-  }, [profiles]);
+  }, [profiles, search]);
 
   const searchTerm = useCallback((term) => {
     console.log(term, 'ssssssssss');
     setSearch(term);
-    findProfiles();
+    // findProfiles();
   }, []);
 
   useEffect(() => {
