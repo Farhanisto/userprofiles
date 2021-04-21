@@ -1,11 +1,6 @@
 import React, { useContext, useCallback, useEffect, useState } from 'react';
 
-const StoreContext = React.createContext({
-  filteredProfiles: [],
-  search: '',
-  getProfiles: () => {},
-  searchTerm: () => {}
-});
+const StoreContext = React.createContext();
 
 const StoreProvider = ({ children }) => {
   const [profiles, setProfiles] = useState('');
