@@ -3,13 +3,13 @@ import ProfileItem from './ProfileItem';
 import { useStore } from '../store/store';
 
 const ProfileList = ({ profiles }) => {
-  const value = useStore();
-  console.log(value, '----prof2');
+  const { filteredProfiles } = useStore();
+  console.log(filteredProfiles, '----prof2');
 
   return (
     <div className={ProfileStyle.grid}>
       {profiles.map((profile, ind) => (
-        <ProfileItem key={profile.id} profile={profiles} ind={ind} />
+        <ProfileItem key={profile.id} profile={profile} ind={ind} />
       ))}
     </div>
   );
