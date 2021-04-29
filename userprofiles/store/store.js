@@ -19,7 +19,8 @@ const StoreProvider = ({ children }) => {
 
     if (search) {
       foundprofiles = foundprofiles.filter(
-        (profile) => profile.name.first == search
+        (profile) =>
+          profile.name.first.toLowerCase() === search.toLocaleLowerCase()
       );
     }
 
