@@ -39,10 +39,10 @@ const StoreProvider = ({ children }) => {
   return (
     <StoreContext.Provider
       value={{
-        filteredProfiles: filteredProfiles,
-        search: search,
-        getProfiles: getProfiles,
-        searchTerm: searchTerm
+        filteredProfiles,
+        search,
+        getProfiles,
+        searchTerm
       }}
     >
       {children}
